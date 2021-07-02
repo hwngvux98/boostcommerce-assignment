@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 interface TicketInfo {
   timeInDate: string;
 }
+
+interface Text {
+  text: string;
+}
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -18,9 +22,9 @@ export class AppController {
     return this.appService.calculateParkingFee(data.timeInDate) + "$";
   }
 
-  @Get('problem2')
-  problem2(): string {
-    const listDetectWord = this.appService.detectWordWithDigitLetter();
+  @Post('problem2')
+  problem2(@Body() data: Text): string {
+    const listDetectWord = this.appService.detectWordWithDigitLetter(data.text);
     const listVariations = this.appService.generateWordVariation(listDetectWord);
     const matchedWord = "Matched Words: '" + listDetectWord.join(", ") + "' " ;
     const variationsWord = "Variations with '-' character: '" + listVariations.join(", ") + "'";

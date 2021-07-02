@@ -12,13 +12,6 @@ describe('AppController', () => {
     }).compile();
   });
 
-  describe('getHello', () => {
-    it('should return "Hello World!"', () => {
-      const appController = app.get<AppController>(AppController);
-      expect(appController.getHello()).toBe('Hello World!');
-    });
-  });
-
   describe('getParkingFee', () => {
     it('should return total parking fee in $', () => {
       const result = '5$';

@@ -27,8 +27,7 @@ export class AppService {
     return parseFloat(fee.toFixed(2));
   }
 
-  detectWordWithDigitLetter(): string[]{
-    const text = "Products are created with 132cxvx SKUs and MXX and CSV and 79 and mic7979 and m98opt options sd34jhf34"
+  detectWordWithDigitLetter(text): string[]{
     const regex = /^(?=.*?\d)(?=.*?[a-zA-Z])[a-zA-Z\d]+$/gm;
     var listWord = text.split(" ")
     var listDetectWord = [];
